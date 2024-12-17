@@ -1,7 +1,11 @@
 const express = require("express");
-const mainRoute = require("./src/routes/main");
 const app = express();
+const cors = require("cors");
+const mainRoute = require("./src/routes/main");
 
+app.use(cors({
+    origin: "*"
+}));
 app.use(mainRoute);
 
 app.listen(3000, () => {
