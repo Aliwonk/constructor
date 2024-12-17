@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
 const jsonParser = express.json();
+const cors = require("cors");
 const mainRoute = require("./src/routes/main");
 const authRoute = require("./src/routes/auth");
 
+app.use(cors({
+    origin: "*"
+}));
 app.use("/", jsonParser, mainRoute);
 app.use("/auth", jsonParser, authRoute);
 
